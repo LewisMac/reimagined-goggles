@@ -33,3 +33,13 @@ get '/students/:id' do
   @student = Wizard.find( params[:id] )
   erb(:show)
 end
+
+get '/house/new' do
+  erb(:new_house)
+end
+
+post '/house' do
+  house = House.new( params )
+  house.save
+  redirect to('/students')
+end
