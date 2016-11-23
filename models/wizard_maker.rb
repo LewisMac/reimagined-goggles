@@ -32,6 +32,18 @@ class Wizard
     @id = result['id'].to_i
   end
 
+  def self.house(student_first_name)
+    sql = "
+    SELECT s.*, h.house_name
+    FROM students s
+    INNER JOIN house h
+    on s.house_id = h.id
+    WHERE s.first_name = '#{student_first_name}';"
+    house_result = SqlRunner.run(sql).first
+    house = house_result['house_name']
+    return house
+  end
+
   def self.delete( id )
     sql = "DELETE FROM students WHERE id=#{id}"
     SqlRunner.run( sql )

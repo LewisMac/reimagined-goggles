@@ -30,6 +30,19 @@ class House
     return result
   end
 
+
+  def self.all_names()
+    sql = "SELECT * FROM house;"
+    house_names = []
+    houses = SqlRunner.run(sql)
+    houses.each do |house|
+      house_names << house['house_name']
+    end
+    return house_names
+  end
+
+
+
   def self.find(house_id)
     sql = "SELECT * FROM house WHERE id = #{house_id};" 
     house = SqlRunner.run(sql).first
