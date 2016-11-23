@@ -1,0 +1,9 @@
+<h1>List of Lizards(Wizards) Oh Ok and Witches</h1>
+
+<% for wizard in @students %>
+
+<p><a href="/students/<%=wizard.id%>" >Name: <%= wizard.first_name %>  <%= wizard.last_name %></a></p>
+
+
+<hr/>
+<% end %>
